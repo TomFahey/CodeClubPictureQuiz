@@ -193,6 +193,35 @@
             <div class="checkpoint">
                 <strong>💾 Save your progress!</strong> All three functions are done! Next we'll wire up the buttons to make everything click.
             </div>
+
+            <div class="callout callout-tip">
+                <strong>📋 Complete Function — Here's What show_gameover() Should Look Like</strong>
+                <p style="margin-top:8px;">When you're done, your function should look like this:</p>
+                <div style="font-family:monospace;white-space:pre;line-height:2.4;font-size:13px;margin-top:12px;">
+<span class="block block-functions">define show_gameover()</span>
+│
+├─ <span class="block block-m5ui">Set <span class="block-input">final_score_label</span> text to</span> → <span class="block block-text">[] + []</span>
+│     ├─ <span class="block block-text"><span class="block-input">"Your Score: "</span></span>
+│     └─ <span class="block block-text">[] + []</span>
+│           ├─ <span class="block block-text">convert number to text <span class="block-input">score</span></span>
+│           └─ <span class="block block-text"><span class="block-input">"/8"</span></span>
+│
+├─ <span class="block block-logic">if <span class="block-input">condition</span> do</span>
+│     │  <span class="block block-math"><span class="block-input">score</span> &gt; <span class="block-input">high_score</span></span>
+│     │
+│     ├─ <span class="block block-variables">set <span class="block-input">high_score</span> to <span class="block-input">score</span></span>
+│     │
+│     └─ <span class="block block-nvs">nvs set integer <span class="block-input">"high_score"</span> <span class="block-input">high_score</span></span>
+│
+├─ <span class="block block-m5ui">Set <span class="block-input">best_score_label</span> text to</span> → <span class="block block-text">[] + []</span>
+│     ├─ <span class="block block-text"><span class="block-input">"Best Score: "</span></span>
+│     └─ <span class="block block-text">[] + []</span>
+│           ├─ <span class="block block-text">convert number to text <span class="block-input">high_score</span></span>
+│           └─ <span class="block block-text"><span class="block-input">"/8"</span></span>
+│
+└─ <span class="block block-m5ui-page">gameover_page screen_load</span>
+                </div>
+            </div>
         </section>
 
         <div class="footer-nav">

@@ -205,6 +205,29 @@
             <div class="checkpoint">
                 <strong>💾 Save your progress!</strong> Your function can now load any round! Next we'll write the judge that checks answers.
             </div>
+
+            <div class="callout callout-tip">
+                <strong>📋 Complete Function — Here's What setup_round() Should Look Like</strong>
+                <p style="margin-top:8px;">When you're done, your function should look like this. Each arrow shows a block connected to the next:</p>
+                <div style="font-family:monospace;white-space:pre;line-height:2.4;font-size:13px;margin-top:12px;">
+<span class="block block-functions">define setup_round()</span>
+│
+├─ <span class="block block-m5ui-image">Set <span class="block-input">quiz_image</span> local image</span> → <span class="block block-lists">in list <span class="block-input">images</span> get # <span class="block-input">current_round</span></span>
+│
+├─ <span class="block block-variables">set <span class="block-input">current_choices</span> to</span> → <span class="block block-lists">in list <span class="block-input">all_answers</span> get # <span class="block-input">current_round</span></span>
+│
+├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn1</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">1</span></span>
+├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn2</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">2</span></span>
+├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn3</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">3</span></span>
+├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn4</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">4</span></span>
+│
+└─ <span class="block block-m5ui">Set <span class="block-input">round_label</span> text to</span> → <span class="block block-text">[] + []</span>
+      ├─ <span class="block block-text"><span class="block-input">"Round: "</span></span>
+      └─ <span class="block block-text">[] + []</span>
+            ├─ <span class="block block-text">convert number to text <span class="block-input">current_round</span></span>
+            └─ <span class="block block-text"><span class="block-input">"/8"</span></span>
+                </div>
+            </div>
         </section>
 
         <div class="footer-nav">

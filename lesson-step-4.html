@@ -197,6 +197,32 @@
             <div class="checkpoint">
                 <strong>💾 Save your progress!</strong> Your quiz can now judge answers! Next: the grand finale screen.
             </div>
+
+            <div class="callout callout-tip">
+                <strong>📋 Complete Function — Here's What check_answer() Should Look Like</strong>
+                <p style="margin-top:8px;">When you're done, your function should look like this:</p>
+                <div style="font-family:monospace;white-space:pre;line-height:2.4;font-size:13px;margin-top:12px;">
+<span class="block block-functions">define check_answer(<span class="block-input">answer_index</span>)</span>
+│
+├─ <span class="block block-logic">if <span class="block-input">condition</span> do</span>
+│     │  <span class="block block-math"><span class="block-input">answer_index</span> = <span class="block-input">in list correct_index get # current_round</span></span>
+│     │
+│     ├─ <span class="block block-variables">set <span class="block-input">score</span> to</span> → <span class="block block-math"><span class="block-input">score</span> + <span class="block-input">1</span></span>
+│     │
+│     └─ <span class="block block-m5ui">Set <span class="block-input">score_label</span> text to</span> → <span class="block block-text">[] + []</span>
+│           ├─ <span class="block block-text"><span class="block-input">"Score: "</span></span>
+│           └─ <span class="block block-text">convert number to text <span class="block-input">score</span></span>
+│
+├─ <span class="block block-variables">set <span class="block-input">current_round</span> to</span> → <span class="block block-math"><span class="block-input">current_round</span> + <span class="block-input">1</span></span>
+│
+└─ <span class="block block-logic">if <span class="block-input">condition</span> do ... else</span>
+      │  <span class="block block-math"><span class="block-input">current_round</span> ≤ <span class="block-input">8</span></span>
+      │
+      ├─ <strong>do:</strong> <span class="block block-functions">call <span class="block-input">setup_round</span>()</span>
+      │
+      └─ <strong>else:</strong> <span class="block block-functions">call <span class="block-input">show_gameover</span>()</span>
+                </div>
+            </div>
         </section>
 
         <div class="footer-nav">

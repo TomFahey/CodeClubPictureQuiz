@@ -259,6 +259,23 @@ Inside the function body, add these blocks:
     - Inner `[] + []`: `[convert number to text current_round]` + `["/8"]` (a Text block)
     - Outer `[] + []`: `["Round: "]` + (the inner `[] + []` result)
 
+> 📋 **Complete Function — Here's What setup_round() Should Look Like:**
+>
+> ```
+> define setup_round()
+> │
+> ├─ Set [quiz_image] local image → in list [images] get # [current_round]
+> │
+> ├─ set [current_choices] to → in list [all_answers] get # [current_round]
+> │
+> ├─ Set [answer_btn1] text to → in list [current_choices] get # [1]
+> ├─ Set [answer_btn2] text to → in list [current_choices] get # [2]
+> ├─ Set [answer_btn3] text to → in list [current_choices] get # [3]
+> ├─ Set [answer_btn4] text to → in list [current_choices] get # [4]
+> │
+> └─ Set [round_label] text to → ["Round: "] + (convert current_round + ["/8"])
+> ```
+
 ---
 
 ### Step 4: Write the Judge — `check_answer(answer_index)`
@@ -290,7 +307,21 @@ Inside the function:
 9. Condition: **Math → `≤`** — `current_round <= 8`
 10. **If true** (more rounds): **Functions → call `setup_round`**
 11. **Else** (all done): **Functions → call `show_gameover`** (we'll make this next!)
-
+> 📋 **Complete Function — Here's What check_answer() Should Look Like:**
+>
+> ```
+> define check_answer(answer_index)
+> │
+> ├─ if [answer_index = in list correct_index get # current_round] do
+> │     ├─ set [score] to [score + 1]
+> │     └─ Set [score_label] text to → ["Score: "] + convert score
+> │
+> ├─ set [current_round] to [current_round + 1]
+> │
+> └─ if [current_round ≤ 8] do ... else
+>       ├─ do: call setup_round()
+>       └─ else: call show_gameover()
+> ```
 ---
 
 ### Step 5: Write the Grand Finale — `show_gameover()`
@@ -326,7 +357,21 @@ Inside the function:
 
 **d) Show the game-over screen:**
 7. From **M5UI**, drag **gameover_page screen_load**
-
+> 📋 **Complete Function — Here's What show_gameover() Should Look Like:**
+>
+> ```
+> define show_gameover()
+> │
+> ├─ Set [final_score_label] text to → ["Your Score: "] + convert score + ["/8"]
+> │
+> ├─ if [score > high_score] do
+> │     ├─ set [high_score] to [score]
+> │     └─ nvs set integer "high_score" [high_score]
+> │
+> ├─ Set [best_score_label] text to → ["Best Score: "] + convert high_score + ["/8"]
+> │
+> └─ gameover_page screen_load
+> ```
 ---
 
 ### Step 6: Wire Up the Buttons and Play!
