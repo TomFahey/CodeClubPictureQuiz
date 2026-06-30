@@ -8,7 +8,7 @@ This repository contains a complete, student-ready coding lesson created through
 
 - **`program-design.md`** — Technical program design (block layout, widget positions, data structures, event flow)
 - **`lesson-plan.md`** — Student-friendly lesson plan with analogies, diagrams, pedagogical review, and step-by-step build instructions
-- **`lesson.html`** through **`lesson-step-7.html`** — Beautiful learner-facing HTML lesson pages with CSS-styled blocks, sidebar navigation, and progress tracking
+- **`index.html`** through **`lesson-step-7.html`** — Beautiful learner-facing HTML lesson pages with CSS-styled blocks, sidebar navigation, and progress tracking
 
 ## What Students Build
 
@@ -34,7 +34,7 @@ A **Picture Quiz** game with 8 rounds featuring:
 
 | Step | File | Topic |
 |------|------|-------|
-| 1 | `lesson.html` | Create project + design 3 screens in UI Editor |
+| 1 | `index.html` | Create project + design 3 screens in UI Editor |
 | 2 | `lesson-step-2.html` | Variables and quiz data lists |
 | 3 | `lesson-step-3.html` | `setup_round()` function |
 | 4 | `lesson-step-4.html` | `check_answer()` function |
