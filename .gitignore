@@ -1,0 +1,8 @@
+# Quiz images — may contain copyrighted content
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+
+# Internal design document — not for student-facing repo
+program-design.md
