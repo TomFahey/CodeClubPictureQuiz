@@ -95,6 +95,16 @@
             .header h1 { font-size: 15px; }
         }
         @media print { .sidebar, .header, .footer-nav { display: none; } .content { max-width: 100%; padding: 0; } .step-section { break-inside: avoid; border: none; padding: 12px 0; } }
+        /* === CONNECTED BLOCK STACK === */
+        .block-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-top: 14px; font-size: 13px; }
+        .block-stack .b-row { display: flex; align-items: center; gap: 4px; position: relative; }
+        .block-stack .b-gutter { margin-left: 28px; padding-left: 14px; border-left: 3px solid #B0BEC5; display: flex; flex-direction: column; gap: 3px; }
+        .block-stack .b-gutter-grn { border-left-color: #66BB6A; }
+        .block-stack .b-gutter-blk { border-left-color: #37474F; }
+        .block-stack .b-branch-label { font-size: 10px; font-weight: 700; color: #2D54CF; text-transform: uppercase; letter-spacing: 0.5px; margin-left: -14px; padding-left: 20px; margin-bottom: 2px; }
+        .block-stack .b-block { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 6px; font-weight: 600; color: #FFF; box-shadow: 0 1px 3px rgba(0,0,0,0.18); white-space: nowrap; position: relative; }
+        .block-stack .b-in { background: rgba(255,255,255,0.22); padding: 2px 7px; border-radius: 3px; font-weight: 400; }
+        .block-stack .b-arrow { color: #90A4AE; font-size: 16px; margin: 0 2px; }
     </style>
 </head>
 <body data-current-step="5" data-total-steps="7">
@@ -197,29 +207,18 @@
             <div class="callout callout-tip">
                 <strong>📋 Complete Function — Here's What show_gameover() Should Look Like</strong>
                 <p style="margin-top:8px;">When you're done, your function should look like this:</p>
-                <div style="font-family:monospace;white-space:pre;line-height:2.4;font-size:13px;margin-top:12px;">
-<span class="block block-functions">define show_gameover()</span>
-│
-├─ <span class="block block-m5ui">Set <span class="block-input">final_score_label</span> text to</span> → <span class="block block-text">[] + []</span>
-│     ├─ <span class="block block-text"><span class="block-input">"Your Score: "</span></span>
-│     └─ <span class="block block-text">[] + []</span>
-│           ├─ <span class="block block-text">convert number to text <span class="block-input">score</span></span>
-│           └─ <span class="block block-text"><span class="block-input">"/8"</span></span>
-│
-├─ <span class="block block-logic">if <span class="block-input">condition</span> do</span>
-│     │  <span class="block block-math"><span class="block-input">score</span> &gt; <span class="block-input">high_score</span></span>
-│     │
-│     ├─ <span class="block block-variables">set <span class="block-input">high_score</span> to <span class="block-input">score</span></span>
-│     │
-│     └─ <span class="block block-nvs">nvs set integer <span class="block-input">"high_score"</span> <span class="block-input">high_score</span></span>
-│
-├─ <span class="block block-m5ui">Set <span class="block-input">best_score_label</span> text to</span> → <span class="block block-text">[] + []</span>
-│     ├─ <span class="block block-text"><span class="block-input">"Best Score: "</span></span>
-│     └─ <span class="block block-text">[] + []</span>
-│           ├─ <span class="block block-text">convert number to text <span class="block-input">high_score</span></span>
-│           └─ <span class="block block-text"><span class="block-input">"/8"</span></span>
-│
-└─ <span class="block block-m5ui-page">gameover_page screen_load</span>
+                <div class="block-stack">
+                    <div class="b-row"><span class="b-block block-functions">define <span class="b-in">show_gameover</span>()</span></div>
+                    <div class="b-gutter b-gutter-grn">
+                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">final_score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Your Score: "</span> + <span class="b-in">convert score</span> + <span class="b-in">"/8"</span>]</span></div>
+                        <div class="b-row"><span class="b-block block-logic">if</span> <span class="b-block block-math"><span class="b-in">score</span> &gt; <span class="b-in">high_score</span></span> <span class="b-block block-logic">do</span></div>
+                        <div class="b-gutter b-gutter-blk">
+                            <div class="b-row"><span class="b-block block-variables">set <span class="b-in">high_score</span> to <span class="b-in">score</span></span></div>
+                            <div class="b-row"><span class="b-block block-nvs">nvs set integer <span class="b-in">"high_score"</span> <span class="b-in">high_score</span></span></div>
+                        </div>
+                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">best_score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Best Score: "</span> + <span class="b-in">convert high_score</span> + <span class="b-in">"/8"</span>]</span></div>
+                        <div class="b-row"><span class="b-block block-m5ui-page">gameover_page screen_load</span></div>
+                    </div>
                 </div>
             </div>
         </section>

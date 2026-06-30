@@ -95,6 +95,17 @@
             .header h1 { font-size: 15px; }
         }
         @media print { .sidebar, .header, .footer-nav { display: none; } .content { max-width: 100%; padding: 0; } .step-section { break-inside: avoid; border: none; padding: 12px 0; } }
+        /* === CONNECTED BLOCK STACK === */
+        .block-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-top: 14px; font-size: 13px; }
+        .block-stack .b-row { display: flex; align-items: center; gap: 4px; position: relative; }
+        .block-stack .b-gutter { margin-left: 28px; padding-left: 14px; border-left: 3px solid #B0BEC5; display: flex; flex-direction: column; gap: 3px; }
+        .block-stack .b-gutter-grn { border-left-color: #66BB6A; }
+        .block-stack .b-gutter-blk { border-left-color: #37474F; }
+        .block-stack .b-branch-label { font-size: 10px; font-weight: 700; color: #2D54CF; text-transform: uppercase; letter-spacing: 0.5px; margin-left: -14px; padding-left: 20px; margin-bottom: 2px; }
+        .block-stack .b-block { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 6px; font-weight: 600; color: #FFF; box-shadow: 0 1px 3px rgba(0,0,0,0.18); white-space: nowrap; position: relative; }
+        .block-stack .b-notch::before { content: ''; position: absolute; top: -3px; left: 16px; width: 10px; height: 6px; background: inherit; clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%); }
+        .block-stack .b-in { background: rgba(255,255,255,0.22); padding: 2px 7px; border-radius: 3px; font-weight: 400; }
+        .block-stack .b-arrow { color: #90A4AE; font-size: 16px; margin: 0 2px; }
     </style>
 </head>
 <body data-current-step="3" data-total-steps="7">
@@ -208,24 +219,18 @@
 
             <div class="callout callout-tip">
                 <strong>📋 Complete Function — Here's What setup_round() Should Look Like</strong>
-                <p style="margin-top:8px;">When you're done, your function should look like this. Each arrow shows a block connected to the next:</p>
-                <div style="font-family:monospace;white-space:pre;line-height:2.4;font-size:13px;margin-top:12px;">
-<span class="block block-functions">define setup_round()</span>
-│
-├─ <span class="block block-m5ui-image">Set <span class="block-input">quiz_image</span> local image</span> → <span class="block block-lists">in list <span class="block-input">images</span> get # <span class="block-input">current_round</span></span>
-│
-├─ <span class="block block-variables">set <span class="block-input">current_choices</span> to</span> → <span class="block block-lists">in list <span class="block-input">all_answers</span> get # <span class="block-input">current_round</span></span>
-│
-├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn1</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">1</span></span>
-├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn2</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">2</span></span>
-├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn3</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">3</span></span>
-├─ <span class="block block-m5ui-button">Set <span class="block-input">answer_btn4</span> text to</span> → <span class="block block-lists">in list <span class="block-input">current_choices</span> get # <span class="block-input">4</span></span>
-│
-└─ <span class="block block-m5ui">Set <span class="block-input">round_label</span> text to</span> → <span class="block block-text">[] + []</span>
-      ├─ <span class="block block-text"><span class="block-input">"Round: "</span></span>
-      └─ <span class="block block-text">[] + []</span>
-            ├─ <span class="block block-text">convert number to text <span class="block-input">current_round</span></span>
-            └─ <span class="block block-text"><span class="block-input">"/8"</span></span>
+                <p style="margin-top:8px;">When you're done, your function should look like this:</p>
+                <div class="block-stack">
+                    <div class="b-row"><span class="b-block block-functions">define <span class="b-in">setup_round</span>()</span></div>
+                    <div class="b-gutter b-gutter-grn">
+                        <div class="b-row"><span class="b-block block-m5ui-image">Set <span class="b-in">quiz_image</span> local image</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">images</span> get # <span class="b-in">current_round</span></span></div>
+                        <div class="b-row"><span class="b-block block-variables">set <span class="b-in">current_choices</span> to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">all_answers</span> get # <span class="b-in">current_round</span></span></div>
+                        <div class="b-row"><span class="b-block block-m5ui-button">Set <span class="b-in">answer_btn1</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">current_choices</span> get # <span class="b-in">1</span></span></div>
+                        <div class="b-row"><span class="b-block block-m5ui-button">Set <span class="b-in">answer_btn2</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">current_choices</span> get # <span class="b-in">2</span></span></div>
+                        <div class="b-row"><span class="b-block block-m5ui-button">Set <span class="b-in">answer_btn3</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">current_choices</span> get # <span class="b-in">3</span></span></div>
+                        <div class="b-row"><span class="b-block block-m5ui-button">Set <span class="b-in">answer_btn4</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">current_choices</span> get # <span class="b-in">4</span></span></div>
+                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">round_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Round: "</span> + (<span class="b-in">convert current_round</span> + <span class="b-in">"/8"</span>)]</span></div>
+                    </div>
                 </div>
             </div>
         </section>

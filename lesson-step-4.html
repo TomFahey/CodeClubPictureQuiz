@@ -95,6 +95,16 @@
             .header h1 { font-size: 15px; }
         }
         @media print { .sidebar, .header, .footer-nav { display: none; } .content { max-width: 100%; padding: 0; } .step-section { break-inside: avoid; border: none; padding: 12px 0; } }
+        /* === CONNECTED BLOCK STACK === */
+        .block-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-top: 14px; font-size: 13px; }
+        .block-stack .b-row { display: flex; align-items: center; gap: 4px; position: relative; }
+        .block-stack .b-gutter { margin-left: 28px; padding-left: 14px; border-left: 3px solid #B0BEC5; display: flex; flex-direction: column; gap: 3px; }
+        .block-stack .b-gutter-grn { border-left-color: #66BB6A; }
+        .block-stack .b-gutter-blk { border-left-color: #37474F; }
+        .block-stack .b-branch-label { font-size: 10px; font-weight: 700; color: #2D54CF; text-transform: uppercase; letter-spacing: 0.5px; margin-left: -14px; padding-left: 20px; margin-bottom: 2px; }
+        .block-stack .b-block { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 6px; font-weight: 600; color: #FFF; box-shadow: 0 1px 3px rgba(0,0,0,0.18); white-space: nowrap; position: relative; }
+        .block-stack .b-in { background: rgba(255,255,255,0.22); padding: 2px 7px; border-radius: 3px; font-weight: 400; }
+        .block-stack .b-arrow { color: #90A4AE; font-size: 16px; margin: 0 2px; }
     </style>
 </head>
 <body data-current-step="4" data-total-steps="7">
@@ -201,26 +211,23 @@
             <div class="callout callout-tip">
                 <strong>📋 Complete Function — Here's What check_answer() Should Look Like</strong>
                 <p style="margin-top:8px;">When you're done, your function should look like this:</p>
-                <div style="font-family:monospace;white-space:pre;line-height:2.4;font-size:13px;margin-top:12px;">
-<span class="block block-functions">define check_answer(<span class="block-input">answer_index</span>)</span>
-│
-├─ <span class="block block-logic">if <span class="block-input">condition</span> do</span>
-│     │  <span class="block block-math"><span class="block-input">answer_index</span> = <span class="block-input">in list correct_index get # current_round</span></span>
-│     │
-│     ├─ <span class="block block-variables">set <span class="block-input">score</span> to</span> → <span class="block block-math"><span class="block-input">score</span> + <span class="block-input">1</span></span>
-│     │
-│     └─ <span class="block block-m5ui">Set <span class="block-input">score_label</span> text to</span> → <span class="block block-text">[] + []</span>
-│           ├─ <span class="block block-text"><span class="block-input">"Score: "</span></span>
-│           └─ <span class="block block-text">convert number to text <span class="block-input">score</span></span>
-│
-├─ <span class="block block-variables">set <span class="block-input">current_round</span> to</span> → <span class="block block-math"><span class="block-input">current_round</span> + <span class="block-input">1</span></span>
-│
-└─ <span class="block block-logic">if <span class="block-input">condition</span> do ... else</span>
-      │  <span class="block block-math"><span class="block-input">current_round</span> ≤ <span class="block-input">8</span></span>
-      │
-      ├─ <strong>do:</strong> <span class="block block-functions">call <span class="block-input">setup_round</span>()</span>
-      │
-      └─ <strong>else:</strong> <span class="block block-functions">call <span class="block-input">show_gameover</span>()</span>
+                <div class="block-stack">
+                    <div class="b-row"><span class="b-block block-functions">define <span class="b-in">check_answer</span>(<span class="b-in">answer_index</span>)</span></div>
+                    <div class="b-gutter b-gutter-grn">
+                        <div class="b-row"><span class="b-block block-logic">if</span> <span class="b-block block-math"><span class="b-in">answer_index</span> = <span class="b-in">in list correct_index get # current_round</span></span> <span class="b-block block-logic">do</span></div>
+                        <div class="b-gutter b-gutter-blk">
+                            <div class="b-row"><span class="b-block block-variables">set <span class="b-in">score</span> to</span> <span class="b-arrow">→</span> <span class="b-block block-math"><span class="b-in">score</span> + <span class="b-in">1</span></span></div>
+                            <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Score: "</span> + <span class="b-in">convert score</span>]</span></div>
+                        </div>
+                        <div class="b-row"><span class="b-block block-variables">set <span class="b-in">current_round</span> to</span> <span class="b-arrow">→</span> <span class="b-block block-math"><span class="b-in">current_round</span> + <span class="b-in">1</span></span></div>
+                        <div class="b-row"><span class="b-block block-logic">if</span> <span class="b-block block-math"><span class="b-in">current_round</span> ≤ <span class="b-in">8</span></span> <span class="b-block block-logic">do ... else</span></div>
+                        <div class="b-gutter b-gutter-grn" style="border-left-style:dashed;">
+                            <div><span class="b-branch-label">do</span></div>
+                            <div class="b-row"><span class="b-block block-functions">call <span class="b-in">setup_round</span>()</span></div>
+                            <div><span class="b-branch-label">else</span></div>
+                            <div class="b-row"><span class="b-block block-functions">call <span class="b-in">show_gameover</span>()</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
