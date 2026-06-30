@@ -255,8 +255,7 @@ Inside the function body, add these blocks:
 **g) Update the round label:**
 13. Find **Set [round_label] text to** from M5UI
 14. UIFlow2 has no "join" block — use nested **Text → [] + []** blocks:
-    - First, drag **Text → convert number to text** on `current_round`
-    - Inner `[] + []`: `[convert number to text current_round]` + `["/8"]` (a Text block)
+    -     - Inner `[] + []`: `[current_round]` + `["/8"]` (a Text block)
     - Outer `[] + []`: `["Round: "]` + (the inner `[] + []` result)
 
 > 📋 **Complete Function — Here's What setup_round() Should Look Like:**
@@ -273,7 +272,7 @@ Inside the function body, add these blocks:
 > ├─ Set [answer_btn3] text to → in list [current_choices] get # [3]
 > ├─ Set [answer_btn4] text to → in list [current_choices] get # [4]
 > │
-> └─ Set [round_label] text to → ["Round: "] + (convert current_round + ["/8"])
+> └─ Set [round_label] text to → ["Round: "] + (current_round + ["/8"])
 > ```
 
 ---
@@ -297,7 +296,7 @@ Inside the function:
 **b) If correct — add a point:**
 5. Inside the if: **Variables → set score to `score + 1`** (use Math `+`)
 6. Then update the display: **Set [score_label] text to** `"Score: "` + `score`
-   - Use **Text → [] + []**: `["Score: "]` + `[convert number to text score]`
+   - Use **Text → [] + []**: `["Score: "]` + `[score]`
 
 **c) Advance to the next round:**
 7. After the if block (not inside it!): **Variables → set current_round to `current_round + 1`** (use Math → `+`)
@@ -314,7 +313,7 @@ Inside the function:
 > │
 > ├─ if [answer_index = in list correct_index get # current_round] do
 > │     ├─ set [score] to [score + 1]
-> │     └─ Set [score_label] text to → ["Score: "] + convert score
+> │     └─ Set [score_label] text to → ["Score: "] + score
 > │
 > ├─ set [current_round] to [current_round + 1]
 > │
@@ -338,8 +337,7 @@ Inside the function:
 **a) Show the final score:**
 2. Find the **Set [final_score_label] text to** block (from M5UI)
    - UIFlow2 has no "join" block — use nested **Text → [] + []** blocks:
-   - First, convert `score` to text: **Text → convert number to text** `score`
-   - Inner `[] + []`: `[convert number to text score]` + `["/8"]`
+   - Inner `[] + []`: `[score]` + `["/8"]`
    - Outer `[] + []`: `["Your Score: "]` + (inner result)
 
 **b) Check for a new high score:**
@@ -353,7 +351,7 @@ Inside the function:
 
 **c) Update the best score display:**
 6. Find the **Set [best_score_label] text to** block (from M5UI)
-   - Use the same nested `[] + []` pattern: `["Best Score: "]` + `([convert number to text high_score]` + `["/8"])`
+   - Use the same nested `[] + []` pattern: `["Best Score: "]` + `([high_score]` + `["/8"])`
 
 **d) Show the game-over screen:**
 7. From **M5UI**, drag **gameover_page screen_load**
@@ -362,13 +360,13 @@ Inside the function:
 > ```
 > define show_gameover()
 > │
-> ├─ Set [final_score_label] text to → ["Your Score: "] + convert score + ["/8"]
+> ├─ Set [final_score_label] text to → ["Your Score: "] + score + ["/8"]
 > │
 > ├─ if [score > high_score] do
 > │     ├─ set [high_score] to [score]
 > │     └─ nvs set integer "high_score" [high_score]
 > │
-> ├─ Set [best_score_label] text to → ["Best Score: "] + convert high_score + ["/8"]
+> ├─ Set [best_score_label] text to → ["Best Score: "] + high_score + ["/8"]
 > │
 > └─ gameover_page screen_load
 > ```

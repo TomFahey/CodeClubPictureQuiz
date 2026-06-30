@@ -202,8 +202,8 @@
                 <li>Find <span class="block block-m5ui">Set <span class="block-input">round_label</span> text to</span> from M5UI</li>
                 <li>UIFlow2 has no <code>join</code> block — use nested <strong>Text → [] + []</strong> blocks:
                     <ul>
-                        <li>First, <span class="block block-text">convert number to text <span class="block-input">current_round</span></span></li>
-                        <li>Inner <span class="block block-text">[] + []</span>: <span class="block-input">convert number to text current_round</span> + <span class="block-input">"/8"</span></li>
+                        <li>First, <span class="block block-text"><span class="block-input">current_round</span></span></li>
+                        <li>Inner <span class="block block-text">[] + []</span>: <span class="block-input">current_round</span> + <span class="block-input">"/8"</span></li>
                         <li>Outer <span class="block block-text">[] + []</span>: <span class="block-input">"Round: "</span> + (inner result)</li>
                     </ul>
                 </li>
@@ -229,7 +229,7 @@
                         <div class="b-row"><span class="b-block block-m5ui-button">Set <span class="b-in">answer_btn2</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">current_choices</span> get # <span class="b-in">2</span></span></div>
                         <div class="b-row"><span class="b-block block-m5ui-button">Set <span class="b-in">answer_btn3</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">current_choices</span> get # <span class="b-in">3</span></span></div>
                         <div class="b-row"><span class="b-block block-m5ui-button">Set <span class="b-in">answer_btn4</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-lists">in list <span class="b-in">current_choices</span> get # <span class="b-in">4</span></span></div>
-                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">round_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Round: "</span> + (<span class="b-in">convert current_round</span> + <span class="b-in">"/8"</span>)]</span></div>
+                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">round_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Round: "</span> + (<span class="b-in">current_round</span> + <span class="b-in">"/8"</span>)]</span></div>
                     </div>
                 </div>
             </div>

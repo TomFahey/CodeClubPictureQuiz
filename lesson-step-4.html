@@ -179,7 +179,7 @@
             <h4>b) If Correct — Add a Point</h4>
             <ol class="instructions" start="5">
                 <li>Inside the if: <span class="block block-variables">set <span class="block-input">score</span> to</span> <span class="block block-math"><span class="block-input">score</span> + <span class="block-input">1</span></span> (use Math → +)</li>
-                <li>Then update the display: <span class="block block-m5ui">Set <span class="block-input">score_label</span> text to</span> <code>"Score: "</code> + <code>score</code> (use Text → [] + [] and convert number to text)</li>
+                <li>Then update the display: <span class="block block-m5ui">Set <span class="block-input">score_label</span> text to</span> <code>"Score: "</code> + <code>score</code> (use Text → [] + [])</li>
             </ol>
 
             <h4>c) Advance to the Next Round</h4>
@@ -217,7 +217,7 @@
                         <div class="b-row"><span class="b-block block-logic">if</span> <span class="b-block block-math"><span class="b-in">answer_index</span> = <span class="b-in">in list correct_index get # current_round</span></span> <span class="b-block block-logic">do</span></div>
                         <div class="b-gutter b-gutter-blk">
                             <div class="b-row"><span class="b-block block-variables">set <span class="b-in">score</span> to</span> <span class="b-arrow">→</span> <span class="b-block block-math"><span class="b-in">score</span> + <span class="b-in">1</span></span></div>
-                            <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Score: "</span> + <span class="b-in">convert score</span>]</span></div>
+                            <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Score: "</span> + <span class="b-in">score</span>]</span></div>
                         </div>
                         <div class="b-row"><span class="b-block block-variables">set <span class="b-in">current_round</span> to</span> <span class="b-arrow">→</span> <span class="b-block block-math"><span class="b-in">current_round</span> + <span class="b-in">1</span></span></div>
                         <div class="b-row"><span class="b-block block-logic">if</span> <span class="b-block block-math"><span class="b-in">current_round</span> ≤ <span class="b-in">8</span></span> <span class="b-block block-logic">do ... else</span></div>

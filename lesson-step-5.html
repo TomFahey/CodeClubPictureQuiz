@@ -161,7 +161,7 @@
 
             <h4>a) Show the Final Score</h4>
             <ol class="instructions" start="2">
-                <li><span class="block block-m5ui">Set <span class="block-input">final_score_label</span> text to</span> <code>"Your Score: "</code> + <code>score</code> + <code>"/8"</code> (use nested Text → [] + [] and convert number to text for <code>score</code>)</li>
+                <li><span class="block block-m5ui">Set <span class="block-input">final_score_label</span> text to</span> <code>"Your Score: "</code> + <code>score</code> + <code>"/8"</code> (use nested Text → [] + [] and for <code>score</code>)</li>
             </ol>
 
             <h4>b) Check for a New High Score</h4>
@@ -188,7 +188,7 @@
 
             <h4>c) Update the Best Score Display</h4>
             <ol class="instructions" start="6">
-                <li><span class="block block-m5ui">Set <span class="block-input">best_score_label</span> text to</span> <code>"Best Score: "</code> + <code>high_score</code> + <code>"/8"</code> (use nested Text → [] + [] and convert number to text)</li>
+                <li><span class="block block-m5ui">Set <span class="block-input">best_score_label</span> text to</span> <code>"Best Score: "</code> + <code>high_score</code> + <code>"/8"</code> (use nested Text → [] + [])</li>
             </ol>
 
             <h4>d) Show the Game-Over Screen</h4>
@@ -210,13 +210,13 @@
                 <div class="block-stack">
                     <div class="b-row"><span class="b-block block-functions">define <span class="b-in">show_gameover</span>()</span></div>
                     <div class="b-gutter b-gutter-grn">
-                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">final_score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Your Score: "</span> + <span class="b-in">convert score</span> + <span class="b-in">"/8"</span>]</span></div>
+                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">final_score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Your Score: "</span> + <span class="b-in">score</span> + <span class="b-in">"/8"</span>]</span></div>
                         <div class="b-row"><span class="b-block block-logic">if</span> <span class="b-block block-math"><span class="b-in">score</span> &gt; <span class="b-in">high_score</span></span> <span class="b-block block-logic">do</span></div>
                         <div class="b-gutter b-gutter-blk">
                             <div class="b-row"><span class="b-block block-variables">set <span class="b-in">high_score</span> to <span class="b-in">score</span></span></div>
                             <div class="b-row"><span class="b-block block-nvs">nvs set integer <span class="b-in">"high_score"</span> <span class="b-in">high_score</span></span></div>
                         </div>
-                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">best_score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Best Score: "</span> + <span class="b-in">convert high_score</span> + <span class="b-in">"/8"</span>]</span></div>
+                        <div class="b-row"><span class="b-block block-m5ui">Set <span class="b-in">best_score_label</span> text to</span> <span class="b-arrow">→</span> <span class="b-block block-text">[<span class="b-in">"Best Score: "</span> + <span class="b-in">high_score</span> + <span class="b-in">"/8"</span>]</span></div>
                         <div class="b-row"><span class="b-block block-m5ui-page">gameover_page screen_load</span></div>
                     </div>
                 </div>
